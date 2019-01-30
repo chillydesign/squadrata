@@ -16,7 +16,7 @@
                 <div id="projects_slider" data-slidestoshow="1">
                     <?php foreach ($gallery as $slide) : ?>
                         <div class="project project_full" >
-                            <div class="project_image" style="background-image:url('<?php echo $slide['sizes']['large'] ; ?>'); "></div>
+                            <img src="<?php echo $slide['sizes']['large'] ; ?>" />
                         </div>
                     <?php endforeach; // end of foreach gallery ?>
                 </div><!-- END OF PROJECTS SLIDER -->

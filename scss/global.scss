@@ -160,9 +160,7 @@ section.section_projets {
 }
 
 #projects_slider {
-    height: 500px;
     margin: 0 0 50px;
-
 
     .project {
         color: white;
@@ -181,6 +179,11 @@ section.section_projets {
 
         &.project_full {
             margin: 0 0 0 0;
+            height: auto;
+            img {
+                width: 100%;
+                height: auto;
+            }
         }
 
         &:hover {
