@@ -20,8 +20,9 @@
     <body <?php body_class(); ?>>
 
 
-
+        <?php if (  showFadeInScreen()  ): ?>
         <div id="fade_in">
+        <?php endif; ?>
 
             <header>
                 <div class="container">

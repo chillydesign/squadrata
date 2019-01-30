@@ -23,10 +23,13 @@
         </div>
     </footer>
 
+
+<?php if ( showFadeInScreen() ): ?>
  </div> <!--END OF FADE IN -->
 <div id="loading_screen">
     <p>Squadrata</p>
 </div>
+<?php endif; ?>
 
 
 <script type='text/javascript' src='//maps.google.com/maps/api/js?key=AIzaSyAxQfqRqtPLAW4BolFMCxTiv9y--R8CXdU&#038;ver=4.8.1'></script>
