@@ -146,9 +146,12 @@ section#welcome_section {
 
 section.section_projets {
 
-    #projects_slider {
-        height: 500px;
-    }
+}
+
+#projects_slider {
+    height: 500px;
+    margin: 0 0 50px;
+
 
     .project {
         color: white;
@@ -188,10 +191,10 @@ section.section_projets {
             text-transform: lowercase;
             font-size: 3.8em;
 
-             a {
-                 color: inherit;
-                 text-decoration: none;
-             }
+            a {
+                color: inherit;
+                text-decoration: none;
+            }
 
         }
 

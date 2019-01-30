@@ -469,8 +469,8 @@ function create_custom_post_types()
             'not_found_in_trash' => __('No Projets found in Trash', 'webfactor')
         ),
         'public' => true,
-        'publicly_queryable' => false, // dont allow to see on front end
-        'exclude_from_search' => true, // dont show in search
+        'publicly_queryable' => true, // dont allow to see on front end
+        'exclude_from_search' => false, //  show in search
         'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
         'has_archive' => true,
         'supports' => array(
@@ -483,8 +483,7 @@ function create_custom_post_types()
         'menu_position' => 20,
         'menu_icon' => 'dashicons-admin-home',
         'taxonomies' => array(
-        //    'post_tag',
-        //    'category'
+            'projet_categorie'
         ) // Add Category and Post Tags support
     ));
 }
