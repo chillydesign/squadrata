@@ -1,225 +1,137 @@
 
 
-/*TYPOGRAPHY*/
-h1,h2,h3,h4,h5, h6 {
-    line-height: 120%;
-    font-family: $header_font_stack;
+h1,h2,h3,h4,h5,h6 {
+    padding: 0 0 20px;
 }
 
 h1 {
-    font-size: 4em;
-    padding:0 0 50px;
-    font-weight: bold;
-    text-transform: uppercase;
+    font-size: #{$font_size * 2.5};
 }
 h2 {
-    font-size: 2.9em;
-    padding: 0 0 20px;
-    font-weight: bold;
-    text-transform: uppercase;
-    span {
-        display: inline-block;
-        padding-bottom: 20px;
-        position: relative;
-         &:before {
-            content: '';
-            height: 15px;
-            width: 200px;
-            background: white;
-            position: absolute;
-            bottom: 0;
-            border-bottom: 4px double #b11b1a;
-            left: calc(50% - 100px);
-        }
-    }
+    font-size: #{$font_size * 1.8};
 }
 h3 {
-    font-size: 2.21em;
-    padding:0 0 10px;
+    font-size: #{$font_size * 1.3};
+}
+
+
+p {
+    padding: 0 0 30px;
+    font-size: $font_size;
+    line-height: 150%;
+}
+
+
+strong, b {
     font-weight: bold;
-    text-transform: uppercase;
 }
-h4 {
-    font-size: 1.69em;
-    padding:0 0 10px;
-    font-weight: bold;
+em, i {
+    font-size: italic;
 }
 
-h6 a, a h6 {
-    border: 2px solid $brand_color;
-    display: inline-block;
-    padding: 20px 30px;
-    border-radius: 5px;
-    margin: 0 0 10px;
-    font-size: 2em;
-    color: $brand_color;
-    transition: all 0.3s;
-
-    &:hover {
-        background: $brand_color;
-        color: white !important;
-    }
+ul {
+    list-style: square;
+    margin: 0 0 30px 30px;
 }
 
-
-@media (min-width: 768px){
-    h1 { font-size: 5em; }
-    h2 { font-size: 3.2em; padding: 0 0 60px }
-    h3 { font-size: 2.6em; }
-    h4 { font-size: 1.79em; }
-
+ol {
 
 }
 
-
-
-
-p { font-size: 1.65em;padding:0 0 30px;line-height: 160%;font-weight:200;  }
-li { font-size: 1.65em;padding:0 0 5px 20px;line-height: 160%; font-weight:200;
-  list-style: none;
-  position: relative;
-
-  &:after {
-     content: '';
-  display: inline-block;
-  height: 20px;
-  width: 15px;
-  background: url('../img/bullet.png') no-repeat left 6px;
-  background-size: 12px;
-  position: absolute;
-  left: 0;
-  top:0;
-  }
+li {
+    font-size: $font_size;
+    padding: 0 0 10px;
 }
 
+blockquote {
+    font-style:  italic;
 
-
-li li, li p {font-size: inherit;}
-ul ul , ul ol, ol ol {font-size: inherit}
-
-
-section ul {
-    list-style: disc;
-    margin:0 0 20px 30px;
 }
-section ol {
-    list-style: decimal;
-    margin:0 0 20px 30px;
-}
-
-
 
 
 a {
-    text-decoration: none;
-    border-bottom:3px double saturate(lighten($brand_color,25),10);
-    display: inline-block;
-    @include transition(0.3s);
+
+    transition: all 0.3s;
 
     &:link, &:visited, &:active {
-        color: saturate(lighten($brand_color,15),10);
+
     }
     &:hover {
-        background-color: transparentize($brand_color,0.8)
+
     }
 
+    &:focus {
+        box-shadow: 0 0 5px purple;
+    }
 
     &.button {
+        background: $black;
+        color: white;
         display: block;
-        border: 3px solid $brand_color;
-        padding: 10px 40px;
-        margin:10px 0;
+        padding: 10px;
         text-align: center;
-        color: $brand_color;
-        @media (min-width: 768px) {
+        margin:  0;
+        text-decoration: none;
+        position: relative;
+        overflow: hidden;
+
+        @media (min-width: $mobile_width) {
             display: inline-block;
+            padding: 10px 50px;
         }
-        &.button_white {
-            border-color: white;
-            color: white;
-            &:hover {
-                background-color: transparentize(white,0.8)
-            }
+
+        &:hover {
+            background-color: $brand_color;
+            transform: scale(1.05);
+        }
+        &:active {
+            top: 1px;
         }
 
 
+
+        &.gold_button {
+            @include linear-gradient(45deg, $gold, $gold_light);
+
+        }
     }
-
 }
 
 
 
-
-strong, b {font-weight: bold;}
-em, i {font-style: italic}
-
-table {
+img {
     width: 100%;
-    margin:0 0 40px;
+    height: auto;
 }
 
-th, td {font-size: 1.5em;padding:10px;border:0}
-section td {font-size: 2em;line-height: 160%;padding:0 0 10px;}
 
-blockquote {
-
-    @media (min-width: $browser_small) {
-        padding: 0 15%;
-        text-align: justify;
-        font-size: 1.3em;
+input, textarea, select, button {
+    padding: 10px;
+    border: 0;
+    font-family: $font_stack;
+    font-size: $font_size;
+    margin: 0 0 10px;
+    width: 100%;
+    box-shadow:  0 3px 0 0 transparent inset;
+    transition:  all 0.3s;
+    &:focus {
+        box-shadow: 0 3px 0 0 lighten($brand_color, 30) inset;
     }
 }
-blockquote p:last-child {padding-bottom: 0}
 
-form {font-size: 14px;}
-textarea {width: 100%; margin-top: 5px;border: solid 1px;    margin-bottom: 20px;
+textarea {
+    height: 100px;
 }
-span.wpcf7-form-control-wrap.demande textarea {
-    height: 258px;
-}
-span.wpcf7-not-valid-tip {
-    margin: -10px 0 20px;
-}
-
-div.wpcf7-response-output {
-    padding: 15px;
-}
-
-input {padding: 10px;width: 100%;font-size: 1.5em;appearance:none;}
-input[type="radio"] {
-    border: solid 1px;
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    margin: 0 4px -4px 0;
-    padding: 8px;
-}
-
-input[type="radio"]:checked {
-    background: #ee3642;
-}
-input[type="radio"]:focus {
-    box-shadow: none;
-    outline:0;
-}
-
-input.wpcf7-form-control.wpcf7-text {
-    padding: 5px;
-    border: solid 1px;
-    margin-bottom: 20px;
-    margin-top: 5px;
-}
-input.wpcf7-form-control.wpcf7-submit {
-    font-size: 14px;
-    text-transform: uppercase;
+button {
+    background: $medium_grey;
     font-weight: bold;
-    background: #333334;
     color: white;
-    margin-top: 16px;
+    text-transform: uppercase;
+    width: auto;
+    padding: 10px 30px;
     cursor: pointer;
-    border: none;
-}
-
-input.wpcf7-form-control.wpcf7-submit:focus,input.wpcf7-form-control.wpcf7-submit:hover {
-  background: #ee3642;
+    transition: all 0.3s;
+    &:hover, &:focus {
+        background-color: $brand_color;
+    }
 }

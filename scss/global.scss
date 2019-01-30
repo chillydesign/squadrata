@@ -1,29 +1,291 @@
 
-@import 'variables';
-@import 'mixins';
-@import 'reset';
-@import 'typography';
-@import 'header';
-@import 'footer';
-@import 'carousel';
+@import "fonts";
+@import "variables";
+@import "reset";
+@import "typography";
+@import "header";
+@import "footer";
+@import 'slick';
 
 @media (min-width: 768px) { }
 @media (min-width: 992px) { }
 @media (min-width: 1200px) { }
 
 body {
-    background: $background_color;
+    font: normal 62.5%  $font_stack;
+    background: white;
+    position: relative;
     color: $font_color;
-    font-family: $font_stack;
-    font-size: 62.5%;
-    font-weight: normal;
-
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 
 }
 
-img {width: 100%; height: auto;}
+$fade_duration: 1s;
+$fade_delay: 1.3s;
 
-@import 'print';
-@import 'sections';
-@import 'home';
-@import 'gallery';
+#loading_screen {
+    position: fixed;
+    z-index: 100;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:  url('../img/palette.jpg') no-repeat top right white;
+    background-size: contain;
+    color: white;
+    z-index: 100;
+    animation: disappear $fade_duration forwards;
+    animation-delay: $fade_delay;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p {
+        flex: 1 auto 0;
+        height: 100%;
+        width: 60%;
+        background: url('../img/logo.svg') no-repeat center center;
+        text-indent: -9999px;
+        animation: appear $fade_duration forwards;
+
+        @media (min-width: $mobile_width) {
+            width: 50%;
+        }
+        @media (min-width: $tablet_width) {
+            width: 40%;
+        }
+    }
+}
+
+#fade_in {
+    opacity: 0;
+    animation: appear $fade_duration forwards;
+    animation-delay: #{$fade_delay + $fade_duration};
+
+}
+
+@keyframes disappear {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        z-index: -1;
+    }
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+section {
+    padding: 0 0 50px;
+}
+
+section#welcome_section {
+
+    #quote_container {
+        position: relative;
+    }
+
+    blockquote {
+        font-size: #{$font_size * 1.8};
+        background: transparentize(white, 0.3);
+        padding: 20px;
+        margin: 0 20px 0 0;
+        position: relative;
+        top: -50px;
+
+        strong {
+            color: $gold;
+        }
+
+        @media (min-width: $mobile_width) {
+            position: absolute;
+            top: -30px;
+            left: 0px;
+            max-width: 600px;
+            text-align: right;
+            font-size: #{$font_size * 3.5};
+            margin: 0 0 50px;
+            padding: 30px;
+
+        }
+        @media (min-width: $tablet_width) {
+            left: 150px;
+            font-size: #{$font_size * 4};
+        }
+    }
+    p {
+        @media (min-width: $mobile_width) {
+            margin-right:  50px;
+        }
+
+    }
+    blockquote + p {
+        margin-top: -50px;
+        position: relative;
+        z-index: 4;
+        @media (min-width: $mobile_width) {
+            margin-top: 140px;
+        }
+        @media (min-width: $tablet_width) {
+            margin-top: 240px;
+        }
+    }
+} // end of welcome section
+
+
+section#projects_container {
+
+    #projects_slider {
+        height: 500px;
+    }
+
+    .project {
+        color: white;
+        height: 500px;
+        position: relative;
+        padding: 40px 0 0;
+        margin: 0 30px 0 0 ;
+        overflow: hidden;
+
+        @media (min-width: $mobile_width) {
+            margin: 0 40px 0 0 ;
+        }
+        @media (min-width: $tablet_width) {
+            margin: 0 50px 0 0 ;
+        }
+
+        &:hover {
+            .project_info {
+                transform:  translateY(0);
+            }
+        }
+
+
+        h2 {
+            text-align: right;
+            background: transparentize(white, 0.3);
+            padding: 10px 20px;
+            margin: 0;
+            position: absolute;
+            top: 5px;
+            right: 40px;
+            left:0;
+            z-index: 3;
+            color: $black;
+            font-weight: normal;
+            font-style: italic;
+            text-transform: lowercase;
+            font-size: 3.8em;
+
+        }
+
+        .project_info {
+            background: transparentize($black, 0.3);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            z-index: 2;
+            transform: translateY(95%);
+            transition: all 0.3s;
+            font-weight: bold;
+
+            ul {
+                margin: 0 0 50px;
+                padding: 0 0 0 10px;
+                li {
+                    padding: 0;
+                    text-transform: uppercase;
+                }
+            }
+            a {
+                display: block;
+                text-align: right;
+                color: white;
+                font-size: $font_size;
+                text-decoration: none;
+            }
+        }
+        .project_image {
+            background: no-repeat center center;
+            background-size: cover;
+            height: 100%;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+
+        }
+    }
+
+
+
+    p {
+        @media (min-width: $mobile_width) {
+            max-width: 66%;
+        }
+    }
+} // end of projects container
+
+
+
+
+
+
+
+
+// TINY SLIDER
+.slick-slider {
+    position: relative;
+    margin:  0 0 60px;
+}
+
+
+button.slick-arrow {
+
+    width: 40px;
+    background: url('../img/chevron_left.svg') no-repeat center center transparentize(white, 0.3);
+    background-size: 20px;
+    position: absolute;
+    top: 0px;
+    bottom: -10px;
+    left: 0;
+    text-indent: -9999px;
+    z-index: 100;
+    padding: 0;
+    margin: 0;
+
+    &:active, &:focus {
+        outline: 0;
+        box-shadow: 0 0 0;
+    }
+
+
+    &:hover {
+        background-color: transprentize($black, 0.3);
+    }
+
+
+
+
+    &.slick-next {
+        background-image: url('../img/chevron_right.svg');
+        left: auto;
+        right: 0;
+    }
+
+
+
+
+}

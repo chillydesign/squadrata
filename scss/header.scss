@@ -1,230 +1,162 @@
 
-$mob_nav_width: 300px;
-.headerfixed {
-    border-bottom: 6px double $brand_color;
+$header_height: 80px;
+$header_margin: 80px;
+$header_offset: #{$header_height * 0.6};
 
-}
-@media (min-width: $browser_small) {
 
-    .headerfixed {
-        height: 115px;
-        width: 100%;
-        position: fixed;
-        z-index: 9999999999999;
-        background: white;
-        background: transparentize(white, 0.03);
-    }
-
-    main#main {
-        padding-top: 115px;
-    }
+main {
+    min-height: 800px;
+    min-height: 90vh;
+    min-height: calc( 100vh - #{$header_height}  - #{$header_margin} - 100px );
 }
 
-header#page_header {
-    color: white;
-    position: relative;
-    display: flex;
-    flex-wrap: nowrap;
-    padding: 20px 0;
+header {
+    background: $black;
+    height: $header_height;
+    margin: 0 0 $header_margin;
 
-    a.branding {
+    a#branding {
         display: block;
-        flex:1 auto 0;
-        background: url('../img/gk-horizontal.jpg') no-repeat left top;
-        background-size: contain;
-        height: 75px;
         width: 300px;
+        height: $header_height;
+        position: relative;
+        top: 30px;
+        flex: 1 auto 0;
+        background: url('../img/logo_bw.svg') no-repeat center left;
+        background-size: contain;
         text-indent: -9999px;
-        border: 0;
-        transform: scale(1);
-        transition: all 0.3s;
-
-        &:hover {
-            transform: scale(1.1);
-        }
-
     }
-
 
     nav {
-
-        position: fixed;
-        top:0;
-        bottom: 0;
-        height: 100%;
-        left: 0;
-        width:$mob_nav_width;
-        background: transparentize($brand_color,0.04);
-        transform: translateX(-1 * $mob_nav_width);
-        transition: all 0.3s;
-        z-index: 50;
-
-        &.visible {
-            display: block;
-            transform: translateX(0);
-
-        }
-
-        @media (min-width: $browser_small) {
-            flex: 1 auto 0;
-            display: block;
-            position: relative;
-            height: auto;
-            transform: none;
-            background: none;
-            text-align: right;
-            width: 100%;
-
-
-        }
+        width: 100%;
+        flex: 1 auto 0;
+        color: white;
+        text-align: right;
+        position: relative;
 
         ul {
-            margin: 30px 0 0;
             padding: 0;
+            margin: 0;
+            display: none;
 
-
-            @media (min-width: $browser_small) {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content:flex-end;
-                margin: 20px 0 0;
+            @media (min-width: $mobile_width) {
+                display: block;
             }
 
 
             li {
-                display: block;
+                display: inline-block;
                 padding: 0;
                 margin: 0;
-                text-transform: uppercase;
-                text-align: left;
-                position: relative;
-
-                &:after {
-                    content: '';
-                    background: none;
-                    display: none;
-                }
-
-
-                    &.hide_on_mobile > a {
-                        display: none;
-
-                    }
-
-
-                @media (min-width: $browser_small) {
-                    display: inline-block;
-                    flex: 1 auto 0;
-
-                    &.hide_on_mobile > a {
-                        display: inline-block;
-
-                    }
-
-                }
-
+                line-height: 1;
                 a {
-                    display: block;
+
+                    display: inline-block;
                     color: white;
-                    padding: 20px 20px;
-                    border: 0;
-                    border-bottom: 3px double transparent;
-
-                    &:hover {
-                        background-color: transparentize(white, 0.8);
+                    text-decoration: none;
+                    &:link, &:visited, &:active {
+                        color: white;
                     }
-
-                    @media (min-width: $browser_small) {
-                        display: inline-block;
-                        color: $dark_grey;
-                        padding: 10px 20px;
-                        &:hover {
-                            background-color: transparentize(white, 0.5);
-                            border-bottom: 3px double $brand_color;
-                        }
-                    }
-
-
-                } // END OF A
-
-
-
-
-                @media (min-width: $browser_small) {
-                    &:hover {
-                        ul.sub-menu {
-                            display: block;
-                        }
-                    }
-
                 }
+            }
+            &#main_nav {
+                margin: 0 -10px;
+                li  {
 
-                ul.sub-menu {
+                    a {
+                        height: #{$header_height - $header_offset};
+                        padding: 0 10px 0;
+                        margin: $header_offset 0 0;
+                        position: relative;
 
-                    margin: 0;
+                        &:after {
+                            content: '';
+                            width: 100%;
+                            height: 0px;
+                            background: transparentize($medium_grey, 0.5);
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            transition: all 0.3s;
+                        }
 
-                    @media (min-width: $browser_small) {
-                        display: none;
-                        position: absolute;
-                        top:45px;
-                        left: -50px;
-                        width: 300px;
-
-                        li {
-                            font-size: 0.75em;
-                            margin: 0;
-                            padding: 00px;
-                            display: block;
-
-                            a {
-                                color: white;
-                                background: $brand_color;
-                                color: white;
-                                display: block;
-                                padding: 10px;
-
-                                &:hover {
-                                    background-color: darken($brand_color, 10);
-                                }
+                        &:hover {
+                            text-shadow: 0 0 5px transparentize(white, 0.5);
+                            &:after {
+                                height: 8px;
+                                background: transparentize($brand_color, 0.5);
                             }
                         }
-                    } // end of for big browsers
-                } // end of .sub-menu
+                    }
+                    &.active {
+                        a {
+                            &:after {
+                                height: 8px;
+                            }
+                        }
+                    }
+                } // end of li
+            } // end of main nav
+
+            $social_nav_height: 20px;
+
+            &#social_nav {
+                position: absolute;
+                top: $header_height;
+                right: -5px;
+                text-transform: uppercase;
+
+                li {
+                    font-size: 1.1em;
+
+                    a {
+                        margin: 5px 2px 0;
+                        padding:0 5px;
+                        height: $social_nav_height;
+                        line-height: $social_nav_height;
+                        background: $black;
+                        font-weight: bold;
+                        &:hover {
+                            background-color: $brand_color;
+                        }
+
+                    } // end of a
+                    &.social_icon  {
+
+                        a {
+                            text-indent: -9999px;
+                            text-align: left;
+                            background-repeat: no-repeat;
+                            background-position: center center;
+                            background-size: $social_nav_height;
+                            width: $social_nav_height;
+                        }
+
+                        &.social_icon_vcard a {
+                            background-image: url('../img/vcard.svg');
+                            background-size: #{$social_nav_height * 0.7};
+                        }
+                        &.social_icon_facebook a {
+                            background-image: url('../img/facebook.svg');
+                        }
+                        &.social_icon_instagram a {
+                            background-image: url('../img/instagram.svg');
+                        }
+                        &.social_icon_pinterest a {
+                            background-image: url('../img/pinterest.svg');
+                        }
+                    }
 
 
 
+                } // end of li
+            } // end of social nav
 
-
-            } // END OF LI
-        } // END OF UL
-
-
-
-
-    } // END OF NAV
-
-
-
-    #menu_button {
-        display: inline-block;
-        background: url('../img/menu.svg') no-repeat center center;
-        width: 30px;
-        height: 30px;
-        background-size: 25px;
-        text-indent: -9999px;
-        position: absolute;
-        top: 55px;
-        right: 15px;
-        border: 0;
-        cursor: pointer;
-        z-index: 60;
-
-        @media (min-width: $browser_small) {
-            display: none;
         }
+
+
+
     }
 
 
-
-
-} // END OF header#page_header
+}

@@ -1,81 +1,69 @@
+
+
 footer {
+
     background: $dark_grey;
-    padding:0;
-    margin: 0 0;
-    color: lighten( $font_color, 75);
+    padding: 20px 0;
+    margin: 0;
+    color: $light_grey;
 
 
-    #horse_div {
-        background-position: 25% center;
-         background-size:cover;
-         background-repeat: no-repeat;
 
-          border-top: 6px double #fff;
-          position:relative;
-
-        @media (min-width: $browser_small) {
-            background-position: center  center;
-        }
-    }
-
-    h4 {
-        text-transform: uppercase;
-    }
-
-    a, a:hover, a:visited, a:link {
-        color: white;
-        border: 0;
-    }
-
-    .footer_columns {
-        display: flex;
-        flex-wrap: wrap;
-
-        .footer_column {
-            flex: 1 auto 0;
-            width: 100%;
-            min-width: 100%;
-            margin: 30px 0;
-
-            @media (min-width: 768px) {
-                width: #{100% / 3};
-                min-width: #{100% / 3};
-            }
-
-        }
-
-    }
-
-    #copyright {
-        background-color: darken($dark_grey, 10);
-        border-top:1px solid white;
-        padding: 20px 0;
-        text-align: center;
         p {
             padding: 0;
             margin: 0;
+            font-size: 1.35em;
+        }
+
+
+    #address_column {
+        @media (min-width: $mobile_width) {
+            width: 40%
+        }
+
+
+    }
+
+    #email_column {
+        @media (min-width: $mobile_width) {
+            text-align: center;
+            width: 20%;
         }
     }
 
 
-}
-
-
-
-$social_icon_size: 35px;
-.social_icon {
-    padding:10px 10px 10px #{$social_icon_size * 1.2};
-    background: no-repeat center left;
-    background-size: $social_icon_size;
-
-
-    &.social_icon_facebook {
-        background-image: url('../img/facebook.svg')
+    #phone_column {
+        @media (min-width: $mobile_width) {
+            text-align: right;
+            width: 40%
+        }
     }
-    &.social_icon_instagram {
-        background-image: url('../img/instagram.svg')
+
+
+
+    #copyright {
+
+
+        color: $medium_grey;
+        font-size: #{$font_size * 0.85};
+
+        @media (min-width: $mobile_width) {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+
+        }
     }
-    &.social_icon_linkedin {
-        background-image: url('../img/linkedin.svg')
+
+
+    a {
+        color: white;
+        text-decoration: none;
+        &:link, &:visited, &:active {
+            color: white;
+        }
+        &:hover {
+
+        }
     }
 }

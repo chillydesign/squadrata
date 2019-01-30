@@ -13,7 +13,6 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="<?php bloginfo('description'); ?>">
-        <link href="https://fonts.googleapis.com/css?family=Cantarell:700" rel="stylesheet">
         <?php wp_head(); ?>
 
 
@@ -22,23 +21,26 @@
 
 
 
-                <div class="headerfixed">
-                <div class="container" >
-                    <header id="page_header" >
-                        <a href="#" id="menu_button" >Menu</a>
-                        <a class=" branding" href="<?php echo $home_url ; ?>" ><?php echo $blog_name; ?>
-                          <img src="<?php echo get_template_directory_uri();?>/img/gk-horizontal.jpg">
-                        </a>
+        <div id="fade_in">
+
+            <header>
+                <div class="container">
+                    <div class="column_container">
+                        <a href="<?php echo $home_url ; ?>" id="branding">Squadrata</a>
                         <nav>
-                            <ul>
+                            <ul id="main_nav">
                                 <?php chilly_nav('header_nav'); ?>
-                                <!-- <li><a class="slidelink" href="<?php echo $home_url ; ?>/#section_colonnes_2">Qui Sommes Nous</a></li>
-                                <li><a class="slidelink" href="<?php echo $home_url ; ?>/#section_services_1">Services</a></li>
-                                <li><a class="slidelink" href="<?php echo $home_url ; ?>/#section_colonnes_4">Contact</a></li> -->
+                            </ul>
+                            <ul id="social_nav">
+                                <li class="social_icon social_icon_vcard"><a href="#">Vcard</a></li>
+                                <li class="social_icon social_icon_facebook"><a href="#">Facebook</a></li>
+                                <li class="social_icon social_icon_instagram"><a href="#">Instagram</a></li>
+                                <li class="social_icon social_icon_pinterest"><a href="#">Pinterest</a></li>
+                                <li><a href="#">login client</a></li>
                             </ul>
                         </nav>
-                    </header>
-                    <div class="print_spacer"></div>
+                    </div>
                 </div>
-                </div>
-                <main id="main" >
+            </header>
+
+            <main id="main">
