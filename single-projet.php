@@ -13,24 +13,39 @@
             <h1><?php the_title(); ?></h1>
 
             <?php if ($gallery): ?>
-            <div id="projects_slider" data-slidestoshow="1">
-                <?php foreach ($gallery as $slide) : ?>
-                <div class="project">
-                    <div class="project_image" style="background-image:url('<?php echo $slide['sizes']['medium'] ; ?>'); "></div>
-                </div>
-            <?php endforeach; // end of foreach gallery ?>
-            </div><!-- END OF PROJECTS SLIDER -->
-        <?php endif; // end if $gallery ?>
-
-        <?php if ($project_link): ?>
-            <?php $pl_url = get_permalink($project_link->ID); ?>
-            <?php $pl_text = ($project_link_text != '') ? $project_link_text : 'DEFAULT TEXT'; ?>
-            <p><a href="<?php echo $pl_url; ?>" class="button gold_button"><?php echo $pl_text; ?></a></p>
-
-        <?php endif; ?>
+                <div id="projects_slider" data-slidestoshow="1">
+                    <?php foreach ($gallery as $slide) : ?>
+                        <div class="project project_full" >
+                            <div class="project_image" style="background-image:url('<?php echo $slide['sizes']['large'] ; ?>'); "></div>
+                        </div>
+                    <?php endforeach; // end of foreach gallery ?>
+                </div><!-- END OF PROJECTS SLIDER -->
+            <?php endif; // end if $gallery ?>
 
 
-            <?php the_content(); // Dynamic Content ?>
+            <div class="column_container">
+                <div class="column">
+            <?php the_content();  ?>
+
+                </div><!--END column -->
+                <div class="column column_align_right">
+
+                    <?php if ($project_link): ?>
+                        <?php $pl_url = get_permalink($project_link->ID); ?>
+                        <?php $pl_text = ($project_link_text != '') ? $project_link_text : 'DEFAULT TEXT'; ?>
+                        <p><a href="<?php echo $pl_url; ?>" class="button gold_button"><?php echo $pl_text; ?></a></p>
+
+                    <?php endif; ?>
+
+                    &nbsp;
+
+                </div><!--END column -->
+            </div> <!--END column_container -->
+
+
+
+
+
 
             <p><?php edit_post_link(); ?></p>
 

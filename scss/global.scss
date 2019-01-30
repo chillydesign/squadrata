@@ -137,7 +137,7 @@ section.section_feature_image {
         @include linear-gradient(45deg, $gold, $gold_light);
     }
 
-    
+
     .quote_container_text {
         margin-top: -50px;
         position: relative;
@@ -177,6 +177,10 @@ section.section_projets {
         }
         @media (min-width: $tablet_width) {
             margin: 0 50px 0 0 ;
+        }
+
+        &.project_full {
+            margin: 0 0 0 0;
         }
 
         &:hover {
