@@ -125,13 +125,7 @@ section.section_feature_image {
         }
     }
 
-    // .quote_container_text {
-    //
-    //     @media (min-width: $mobile_width) {
-    //         margin-right:  50px;
-    //     }
-    //
-    // }
+
 
     h6 a, a h6 {
         @include linear-gradient(45deg, $gold, $gold_light);
