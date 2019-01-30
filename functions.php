@@ -96,8 +96,11 @@ function webfactor_header_scripts()
 {
     if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
 
-        wp_register_script('scriptname', get_template_directory_uri() . '/js/scripts.js', array('jquery'),  wf_version(),  true ); // Conditional script(s)
-        wp_enqueue_script('scriptname'); // Enqueue it!
+        wp_register_script('slick', get_template_directory_uri() . '/js/slick.min.js', array('jquery'),  wf_version(),  true ); // Conditional script(s)
+        wp_enqueue_script('slick'); // Enqueue it!
+
+        wp_register_script('scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'),  wf_version(),  true ); // Conditional script(s)
+        wp_enqueue_script('scripts'); // Enqueue it!
 
         wp_register_script('modernizr', get_template_directory_uri() . '/js/lib/modernizr-2.7.1.min.js', array(), '2.7.1'); // Modernizr
         wp_enqueue_script('modernizr'); // Enqueue it!
@@ -415,25 +418,55 @@ add_shortcode('html5_shortcode_demo_2', 'html5_shortcode_demo_2'); // Place [htm
 \*------------------------------------*/
 
 // Create 1 Custom Post type for a Demo, called HTML5-Blank
-// add_action('init', 'create_post_type_application'); // Add our HTML5 Blank Custom Post Type
-function create_post_type_application()
+ add_action('init', 'create_custom_post_types'); // Add our HTML5 Blank Custom Post Type
+function create_custom_post_types()
 {
 
-    register_post_type('application', // Register Custom Post Type
+
+
+      $labels_projet_cat = array(
+          'name'                       => 'Catégories',
+          'singular_name'              => 'Catégorie',
+          'menu_name'                  => 'Catégorie',
+          'all_items'                  => 'Toutes les Catégories',
+          'parent_item'                => 'Catégorie parente',
+          'parent_item_colon'          => 'Catégorie parente:',
+          'new_item_name'              => 'Nom de la nouvelle categorie',
+          'add_new_item'               => 'Ajouter une categorie',
+          'edit_item'                  => 'Modifier categorie',
+          'update_item'                => 'Mettre à jur la categorie',
+          'separate_items_with_commas' => 'Separer les categories avec des virgules',
+          'search_items'               => 'Chercher dans les categories',
+          'add_or_remove_items'        => 'Ajouter ou supprimer des categories',
+          'choose_from_most_used'      => 'Choisir parmi les categories les plus utilisées',
+      );
+      $args_projet_cat = array(
+          'labels'                     => $labels_projet_cat,
+          'hierarchical'               => true,
+          'public'                     => true,
+          'show_ui'                    => true,
+          'show_admin_column'          => true,
+          'show_in_nav_menus'          => true,
+          'show_tagcloud'              => false,
+      );
+      register_taxonomy( 'projet_categorie', array( 'projet' ), $args_projet_cat );
+
+
+    register_post_type('projet', // Register Custom Post Type
         array(
         'labels' => array(
-            'name' => __('Application', 'webfactor'), // Rename these to suit
-            'singular_name' => __('Application', 'webfactor'),
+            'name' => __('Projets', 'webfactor'), // Rename these to suit
+            'singular_name' => __('Projet', 'webfactor'),
             'add_new' => __('Add New', 'webfactor'),
-            'add_new_item' => __('Add New Application', 'webfactor'),
+            'add_new_item' => __('Add New Projet', 'webfactor'),
             'edit' => __('Edit', 'webfactor'),
-            'edit_item' => __('Edit Application', 'webfactor'),
-            'new_item' => __('New Application', 'webfactor'),
-            'view' => __('View Application', 'webfactor'),
-            'view_item' => __('View Application', 'webfactor'),
-            'search_items' => __('Search Application', 'webfactor'),
-            'not_found' => __('No Applications found', 'webfactor'),
-            'not_found_in_trash' => __('No Applications found in Trash', 'webfactor')
+            'edit_item' => __('Edit Projet', 'webfactor'),
+            'new_item' => __('New Projet', 'webfactor'),
+            'view' => __('View Projet', 'webfactor'),
+            'view_item' => __('View Projet', 'webfactor'),
+            'search_items' => __('Search Projets', 'webfactor'),
+            'not_found' => __('No Projets found', 'webfactor'),
+            'not_found_in_trash' => __('No Projets found in Trash', 'webfactor')
         ),
         'public' => true,
         'publicly_queryable' => false, // dont allow to see on front end
@@ -447,6 +480,8 @@ function create_post_type_application()
             'thumbnail'
         ), // Go to Dashboard Custom HTML5 Blank post for supports
         'can_export' => true, // Allows export in Tools > Export
+        'menu_position' => 20,
+        'menu_icon' => 'dashicons-admin-home',
         'taxonomies' => array(
         //    'post_tag',
         //    'category'

@@ -33,7 +33,31 @@
 
 
 
+        $("#projects_slider").slick({
 
+            // normal options...
+            infinite: true,
+            autoplay: true,
+            dots: false,
+            slidesToShow: 3,
+
+            // the magic
+            responsive: [{
+
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 2,
+                }
+
+            }, {
+
+                breakpoint: 568,
+                settings: {
+                    slidesToShow: 1
+                }
+
+            }]
+        });
 
 
         // MAP
