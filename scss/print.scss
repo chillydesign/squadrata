@@ -1,0 +1,45 @@
+
+@media print {
+  nav {display: none!important;}
+  a.branding {
+    text-indent:0px!important;
+    color:white;
+    font-size: 0!important;
+    margin: 0 auto 10px;
+    img {width: 200px; height: auto;display: block;margin: auto;}
+    background: none!important;
+  }
+  .footer_column {display: none;}
+  .footer_column:first-child{display: block;}
+  header {padding-bottom:0px;}
+  .headerfixed {position: relative; margin-bottom: 50px;border:0 !important}
+
+  section {padding: 0; margin: 0 0 0px; page-break-inside: avoid;}
+  section.grey {background: white;}
+  section.section_feature_image, section.section_logos {
+    display: none;
+    border: 0;
+  }
+  section.section_people {margin-top: 80px;}
+  * {
+    -webkit-print-color-adjust: exact;
+    -moz-print-color-adjust: exact;
+  }
+  h1, h2, h3, h4, h5 {page-break-after: avoid; font-size: 18px!important; margin-bottom: 0;}
+  p, blockquote, h6 {font-size: 14px; page-break-inside: auto;}
+  h2 {margin: -100px 0 0px;}
+  .services_container, .slick-track { column-count: 2;}
+  input, textarea {width: 100%;}
+  .services_container .single_service .service_icon {transform: scale(0.5);}
+  header#page_header #menu_button {display: none;}
+  dd {
+    display: block!important;
+    page-break-before: avoid;
+  }
+
+  form {
+      div, p, input, textarea {
+              display: none !important
+      }
+  }
+}

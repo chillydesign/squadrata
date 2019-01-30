@@ -1,0 +1,32 @@
+{
+  "name": "squadratatheme",
+  "version": "0.0.1",
+  "description": "This is the Chalet agate wordpress theme made by webfactor.ch.",
+  "main": "index.php",
+  "scripts": {
+    "test": "say test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chillydesign/squadrata.git"
+  },
+  "keywords": [
+    "wordpress",
+    "webfactor",
+    "blank",
+    "theme"
+  ],
+  "author": "Charles Harvey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chillydesign/squadrata/issues"
+  },
+  "homepage": "https://github.com/chillydesign/squadrata#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.1.0",
+    "gulp-minify": "^1.0.0",
+    "gulp-sass": "^3.1.0"
+  }
+}

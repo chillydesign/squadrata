@@ -1,0 +1,29 @@
+
+@import 'variables';
+@import 'mixins';
+@import 'reset';
+@import 'typography';
+@import 'header';
+@import 'footer';
+@import 'carousel';
+
+@media (min-width: 768px) { }
+@media (min-width: 992px) { }
+@media (min-width: 1200px) { }
+
+body {
+    background: $background_color;
+    color: $font_color;
+    font-family: $font_stack;
+    font-size: 62.5%;
+    font-weight: normal;
+
+
+}
+
+img {width: 100%; height: auto;}
+
+@import 'print';
+@import 'sections';
+@import 'home';
+@import 'gallery';
