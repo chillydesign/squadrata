@@ -535,9 +535,9 @@ function chilly_nav($menu){
 function chilly_map( $atts, $content = null ) {
 
     $attributes = shortcode_atts( array(
-        'title' => "Somewhere",
-        'lat' => 0,
-        'lng' => 0,
+        'title' => "Squadrata",
+        'lat' => 46.2041742,
+        'lng' => 6.1334691,
     ), $atts );
 
 
@@ -546,7 +546,7 @@ function chilly_map( $atts, $content = null ) {
     $lat = $attributes['lat'];
     $lng = $attributes['lng'];
     $chilly_map = '<div id="map_container"></div>';
-    $chilly_map .= "<script> var   map_location = {lat: ". $lat . ", lng:  ". $lng . ", title:  '" . $title . "'  }; </script>";
+    $chilly_map .= "<script> var map_location = {lat: ". $lat . ", lng:  ". $lng . ", title:  '" . $title . "'  }; </script>";
     return $chilly_map;
 
 }
