@@ -90,9 +90,9 @@ section {
     padding: 0 0 50px;
 }
 
-section#welcome_section {
+section.section_feature_image {
 
-    #quote_container {
+    .quote_container {
         position: relative;
     }
 
@@ -124,13 +124,21 @@ section#welcome_section {
             font-size: #{$font_size * 4};
         }
     }
-    p {
-        @media (min-width: $mobile_width) {
-            margin-right:  50px;
-        }
 
+    // .quote_container_text {
+    //
+    //     @media (min-width: $mobile_width) {
+    //         margin-right:  50px;
+    //     }
+    //
+    // }
+
+    h6 a, a h6 {
+        @include linear-gradient(45deg, $gold, $gold_light);
     }
-    blockquote + p {
+
+    
+    .quote_container_text {
         margin-top: -50px;
         position: relative;
         z-index: 4;
@@ -141,7 +149,10 @@ section#welcome_section {
             margin-top: 240px;
         }
     }
-} // end of welcome section
+} // end of section_feature_image
+
+
+
 
 
 section.section_projets {
@@ -247,4 +258,4 @@ section.section_projets {
             max-width: 66%;
         }
     }
-} // end of projects container
+} // end of projects slider

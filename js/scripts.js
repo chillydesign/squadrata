@@ -32,32 +32,39 @@
 
 
 
+        var $projects_slider = $("#projects_slider");
+        if ($projects_slider.length > 0) {
+            var $slides_to_show = $projects_slider.data('slidestoshow');
+            if ($slides_to_show == undefined) {
+                $slides_to_show = 3;
+            }
+            $projects_slider.slick({
 
-        $("#projects_slider").slick({
+                // normal options...
+                infinite: true,
+                autoplay: true,
+                dots: false,
+                slidesToShow: $slides_to_show,
 
-            // normal options...
-            infinite: true,
-            autoplay: true,
-            dots: false,
-            slidesToShow: 3,
+                // the magic
+                responsive: [{
 
-            // the magic
-            responsive: [{
+                    breakpoint: 992,
+                    settings: {
+                        slidesToShow: Math.max($slides_to_show - 1, 1),
+                    }
 
-                breakpoint: 992,
-                settings: {
-                    slidesToShow: 2,
-                }
+                }, {
 
-            }, {
+                    breakpoint: 568,
+                    settings: {
+                        slidesToShow: Math.max($slides_to_show - 2, 1)
+                    }
 
-                breakpoint: 568,
-                settings: {
-                    slidesToShow: 1
-                }
+                }]
+            });
 
-            }]
-        });
+        }
 
 
         // MAP

@@ -7,19 +7,27 @@
         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
             <?php $gallery = get_field('gallery'); ?>
+            <?php $project_link = get_field('project_link'); ?>
+            <?php $project_link_text = get_field('project_link_text'); ?>
 
             <h1><?php the_title(); ?></h1>
 
             <?php if ($gallery): ?>
-            <div id="projects_slider">
+            <div id="projects_slider" data-slidestoshow="1">
                 <?php foreach ($gallery as $slide) : ?>
                 <div class="project">
-                    <h2>Title here</h2>
                     <div class="project_image" style="background-image:url('<?php echo $slide['sizes']['medium'] ; ?>'); "></div>
                 </div>
             <?php endforeach; // end of foreach gallery ?>
             </div><!-- END OF PROJECTS SLIDER -->
         <?php endif; // end if $gallery ?>
+
+        <?php if ($project_link): ?>
+            <?php $pl_url = get_permalink($project_link->ID); ?>
+            <?php $pl_text = ($project_link_text != '') ? $project_link_text : 'DEFAULT TEXT'; ?>
+            <p><a href="<?php echo $pl_url; ?>" class="button gold_button"><?php echo $pl_text; ?></a></p>
+
+        <?php endif; ?>
 
 
             <?php the_content(); // Dynamic Content ?>
