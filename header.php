@@ -33,8 +33,7 @@
                                 <?php chilly_nav('header_nav'); ?>
                             </ul>
                             <ul id="social_nav">
-                                <li class="social_icon social_icon_vcard"><a href="#">Vcard</a></li>
-                                <li class="social_icon social_icon_facebook"><a href="#">Facebook</a></li>
+                                <li class="social_icon social_icon_vcard"><a href="#">Vcard</a></li>2
                                 <li class="social_icon social_icon_instagram"><a href="#">Instagram</a></li>
                                 <li class="social_icon social_icon_pinterest"><a href="#">Pinterest</a></li>
                                 <!-- <li><a href="#">login client</a></li> -->
