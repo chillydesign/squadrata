@@ -3,7 +3,6 @@
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <title><?php wp_title(''); ?><?php if(wp_title('', false)) { echo ' :'; } ?> <?php bloginfo('name'); ?></title>
-        <?php $tdu =  get_template_directory_uri(); ?>
         <?php $blog_name =  get_bloginfo('name'); ?>
         <?php $home_url =  home_url(); ?>
         <!-- <link href="//www.google-analytics.com" rel="dns-prefetch"> -->
@@ -27,7 +26,7 @@
             <header>
                 <div class="container">
                     <div class="column_container">
-                        <a href="<?php echo $home_url ; ?>" id="branding">Squadrata</a>
+                        <a href="<?php echo $home_url; ?>" id="branding">Squadrata</a>
                         <nav>
                             <ul id="main_nav">
                                 <?php chilly_nav('header_nav'); ?>
