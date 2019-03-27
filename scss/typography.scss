@@ -98,6 +98,10 @@ h6 a, a h6, a.button {
         background-color: $brand_color;
         transform: scale(1.05);
     }
+
+    &:visited, &:active, &:link, &:focus {
+        color: white;
+    }
     &:active {
         top: 1px;
     }

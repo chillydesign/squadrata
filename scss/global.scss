@@ -180,6 +180,12 @@ section.section_projets {
             }
         }
 
+        &.project_show_info {
+            .project_info {
+                transform:  translateY(0);
+            }
+        }
+
         &:hover {
             .project_info {
                 transform:  translateY(0);
@@ -208,6 +214,10 @@ section.section_projets {
                 text-decoration: none;
             }
 
+        }
+
+        a.project_info {
+            color: white;
         }
 
         .project_info {
