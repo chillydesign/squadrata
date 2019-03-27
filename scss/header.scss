@@ -6,8 +6,8 @@ $header_offset: #{$header_height * 0.6};
 
 main {
     min-height: 800px;
-    min-height: 90vh;
-    min-height: calc( 100vh - #{$header_height}  - #{$header_margin} - 100px );
+    min-height: 95vh;
+    min-height: calc( 100vh - #{$header_height}  - #{$header_margin}  );
 }
 
 header {
