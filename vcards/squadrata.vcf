@@ -1,0 +1,16 @@
+BEGIN:VCARD
+VERSION:3.0
+PRODID:-//Apple Inc.//Mac OS X 10.12.1//EN
+N:;;;;
+FN:Squadrata
+ORG:Squadrata;
+TITLE:bureau d'architectes
+EMAIL;type=INTERNET;type=WORK:info@squadrata.com
+TEL;type=WORK;type=FAX;type=pref:+41227325624
+TEL;type=WORK;type=VOICE:+41227325623
+ADR;type=WORK;type=pref:;;Quai du Seujet 34;Genève;GE;1201;
+item1.URL;type=pref:https://squadrata.com
+item1.X-ABLabel:_$!<HomePage>!$_
+X-ABShowAs:COMPANY
+X-ABUID:7755486E-BC68-44AD-9952-44786C358701:ABPerson
+END:VCARD
