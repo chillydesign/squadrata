@@ -50,6 +50,7 @@ header {
             height: auto;
             padding-top: 0;
             flex: 1 auto 0;
+            transform: translateX(0);
         }
         
         &.visible {
@@ -210,9 +211,7 @@ header {
                 li {
                     display: inline-block;
                     
-                    @media (min-width: $mobile_width) {
-                        display: block;
-                    }
+                   
                     font-size: 1.1em;
                     
                     a {
