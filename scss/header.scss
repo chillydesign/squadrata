@@ -2,7 +2,7 @@
 $header_height: 80px;
 $header_margin: 80px;
 $header_offset: #{$header_height * 0.6};
-
+$nav_mobile_width: 300px;
 
 main {
     min-height: 800px;
@@ -14,7 +14,7 @@ header {
     background: $black;
     height: $header_height;
     margin: 0 0 $header_margin;
-
+    
     a#branding {
         display: block;
         width: 300px;
@@ -26,51 +26,100 @@ header {
         background-size: contain;
         text-indent: -9999px;
     }
-
+    
     nav {
-        width: 100%;
-        flex: 1 auto 0;
+        width: $nav_mobile_width;
+        transition: all 0.3s;
+        transform: translateX(  $nav_mobile_width  ) ;
+        
         color: white;
         text-align: right;
         position: relative;
-
+        background: transparentize($black, 0.1);
+        position: fixed;
+        top:0;
+        bottom: 0;
+        right: 0;
+        height: 100vh;
+        padding-top: $header_height;
+        
+        @media (min-width: $mobile_width) {
+            width: 100%;
+            background:none;
+            position: static;
+            height: auto;
+            padding-top: 0;
+            flex: 1 auto 0;
+        }
+        
+        &.visible {
+            transform: translateX(0);
+        }
+        
         ul {
             padding: 0;
             margin: 0;
-            display: none;
-
+            display: block;
+            
+            
             @media (min-width: $mobile_width) {
-                display: block;
+                
             }
-
-
+            
+            
             li {
-                display: inline-block;
+                display: block;
                 padding: 0;
                 margin: 0;
                 line-height: 1;
                 position: relative;
-                a {
-
+                
+                
+                @media (min-width: $mobile_width) {
                     display: inline-block;
+                }
+                
+                
+                
+                a {
+                    
+                    display: block;
                     color: white;
                     text-decoration: none;
+                    
+                    @media (min-width: $mobile_width) {
+                        display: inline-block;
+                    }
+                    
+                    
                     &:link, &:visited, &:active {
                         color: white;
                     }
                 }
-
+                
             }
             &#main_nav {
-                margin: 0 -10px;
+                margin: 0;
+                
+                @media (min-width: $mobile_width) {
+                    margin: 0 -10px;
+                }
+                
                 li  {
-
+                    
                     a {
-                        height: #{$header_height - $header_offset};
-                        padding: 0 10px 0;
-                        margin: $header_offset 0 0;
+                        
                         position: relative;
-
+                        padding: 10px;
+                        
+                        @media (min-width: $mobile_width) {
+                            height: #{$header_height - $header_offset};
+                            padding: 0 10px 0;
+                            margin: $header_offset 0 0;
+                        }
+                        
+                        
+                        
                         &:after {
                             content: '';
                             width: 100%;
@@ -81,7 +130,7 @@ header {
                             left: 0;
                             transition: all 0.3s;
                         }
-
+                        
                         &:hover {
                             text-shadow: 0 0 5px transparentize(white, 0.5);
                             &:after {
@@ -97,61 +146,75 @@ header {
                             }
                         }
                     }
-
-
+                    
+                    
                     &:hover {
                         ul.sub-menu {
                             display: block;
                         }
                     }
-    
+                    
                     ul.sub-menu {
-                        display: none;
-                        position: absolute;
-                        background-color: $black;
-                        text-align: right;
-                        right: 0;
-                        width: 200px;
-                        z-index: 100;
-
-    
+                        
+                        
+                        @media (min-width: $mobile_width) {
+                            display: none;
+                            position: absolute;
+                            background-color: $black;
+                            text-align: right;
+                            right: 0;
+                            width: 200px;
+                            z-index: 100;
+                            
+                        }
+                        
+                        
+                        
                         li {
                             display: block;
                             font-size: 1em;
-                           
+                            
                             a {
                                 height: auto;
                                 display: block;   
                                 padding: 10px;
                                 margin: 0;
-
+                                
                                 &:hover {
                                     background-color: lighten($black, 10);
                                 }
-
+                                
                                 &:after {
                                     content: none;
                                 }
                             }
                         }
                     }
-
-
-
+                    
+                    
+                    
                 } // end of li
             } // end of main nav
-
+            
             $social_nav_height: 20px;
-
+            
             &#social_nav {
-                position: absolute;
-                top: $header_height;
-                right: -5px;
-                text-transform: uppercase;
-
+                
+                @media (min-width: $mobile_width) {
+                    position: absolute;
+                    top: $header_height;
+                    right: -5px;
+                    text-transform: uppercase;
+                }
+                
                 li {
+                    display: inline-block;
+                    
+                    @media (min-width: $mobile_width) {
+                        display: block;
+                    }
                     font-size: 1.1em;
-
+                    
                     a {
                         margin: 5px 2px 0;
                         padding:0 5px;
@@ -162,10 +225,10 @@ header {
                         &:hover {
                             background-color: $brand_color;
                         }
-
+                        
                     } // end of a
                     &.social_icon  {
-
+                        
                         a {
                             text-indent: -9999px;
                             text-align: left;
@@ -174,7 +237,7 @@ header {
                             background-size: $social_nav_height;
                             width: $social_nav_height;
                         }
-
+                        
                         &.social_icon_vcard a {
                             background-image: url('../img/vcard.svg');
                             background-size: #{$social_nav_height * 0.7};
@@ -189,19 +252,19 @@ header {
                             background-image: url('../img/pinterest.svg');
                         }
                     }
-
-
-
+                    
+                    
+                    
                 } // end of li
             } // end of social nav
-
+            
         }
-
-
-
+        
+        
+        
     }
-
-
+    
+    
 }
 
 
@@ -216,7 +279,7 @@ a#menu_button {
     top:35px;
     right: 20px;
     z-index: 100;
-
+    
     @media (min-width: $mobile_width) {
         display: none;
     }
