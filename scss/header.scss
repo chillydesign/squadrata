@@ -60,31 +60,6 @@ header {
                     }
                 }
 
-                &:hover {
-                    ul.sub-menu {
-                        display: block;
-                    }
-                }
-
-                ul.sub-menu {
-                    display: none;
-                    position: absolute;
-                    background-color: $black;
-                    text-align: left;
-                    width: 200px;
-
-                    li {
-                        display: block;
-                        font-size: 1em;
-                       
-                        a {
-                            height: 0;
-                            display: block;   
-                            padding: 10px;
-                            margin: 0;
-                        }
-                    }
-                }
             }
             &#main_nav {
                 margin: 0 -10px;
@@ -122,6 +97,36 @@ header {
                             }
                         }
                     }
+
+
+                    &:hover {
+                        ul.sub-menu {
+                            display: block;
+                        }
+                    }
+    
+                    ul.sub-menu {
+                        display: none;
+                        position: absolute;
+                        background-color: $black;
+                        text-align: left;
+                        width: 200px;
+    
+                        li {
+                            display: block;
+                            font-size: 1em;
+                           
+                            a {
+                                height: 0;
+                                display: block;   
+                                padding: 10px;
+                                margin: 0;
+                            }
+                        }
+                    }
+
+
+
                 } // end of li
             } // end of main nav
 
