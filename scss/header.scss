@@ -49,6 +49,7 @@ header {
                 padding: 0;
                 margin: 0;
                 line-height: 1;
+                position: relative;
                 a {
 
                     display: inline-block;
@@ -56,6 +57,32 @@ header {
                     text-decoration: none;
                     &:link, &:visited, &:active {
                         color: white;
+                    }
+                }
+
+                &:hover {
+                    ul.sub-menu {
+                        display: block;
+                    }
+                }
+
+                ul.sub-menu {
+                    display: none;
+                    position: absolute;
+                    background-color: $black;
+                    text-align: left;
+                    width: 200px;
+
+                    li {
+                        display: block;
+                        font-size: 1em;
+                       
+                        a {
+                            height: 0;
+                            display: block;   
+                            padding: 10px;
+                            margin: 0;
+                        }
                     }
                 }
             }
