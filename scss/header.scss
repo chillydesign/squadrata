@@ -203,3 +203,21 @@ header {
 
 
 }
+
+
+a#menu_button {
+    display: block;
+    background: url('../img/menu.svg') no-repeat center center;
+    background-size: 30px;
+    text-indent: -9999px;
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    top:35px;
+    right: 20px;
+    z-index: 100;
+
+    @media (min-width: $mobile_width) {
+        display: none;
+    }
+}
