@@ -111,16 +111,26 @@ header {
                         background-color: $black;
                         text-align: left;
                         width: 200px;
+                        z-index: 100;
+
     
                         li {
                             display: block;
                             font-size: 1em;
                            
                             a {
-                                height: 0;
+                                height: auto;
                                 display: block;   
                                 padding: 10px;
                                 margin: 0;
+
+                                &:hover {
+                                    background-color: lighten($black, 10);
+                                }
+
+                                &:after {
+                                    content: none;
+                                }
                             }
                         }
                     }
