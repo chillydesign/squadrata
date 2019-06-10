@@ -109,7 +109,8 @@ header {
                         display: none;
                         position: absolute;
                         background-color: $black;
-                        text-align: left;
+                        text-align: right;
+                        right: 0;
                         width: 200px;
                         z-index: 100;
 
