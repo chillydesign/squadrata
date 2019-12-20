@@ -6,11 +6,15 @@
     <?php if (have_posts()): while (have_posts()) : the_post(); ?>
         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
+            <?php $subtitle = get_field('subtitle'); ?>
             <?php $gallery = get_field('gallery'); ?>
             <?php $project_link = get_field('project_link'); ?>
             <?php $project_link_text = get_field('project_link_text'); ?>
 
             <h1><?php the_title(); ?></h1>
+            <?php if ($subtitle) : ?>
+                <p class="subtitle"><?php echo $subtitle; ?></p>
+            <?php endif; ?>
 
             <?php if ($gallery): ?>
                 <div id="projects_slider" data-slidestoshow="1">
