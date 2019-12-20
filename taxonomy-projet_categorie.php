@@ -20,7 +20,7 @@
                     <?php endif; ?>
                     </a></h2>
                     <div class="project_info">
-                        <a class="all_projects" href="<?php the_permalink();?>">view</a>
+                        <a class="all_projects" href="<?php the_permalink();?>"><?php _e('view', 'webfactor'); ?></a>
                     </div>
                     <div class="project_image" style="background-image:url('<?php echo $image; ?>'); "></div>
                 </div>
