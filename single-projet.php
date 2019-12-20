@@ -36,7 +36,7 @@
 
                     <?php if ($project_link): ?>
                         <?php $pl_url = get_permalink($project_link->ID); ?>
-                        <?php $pl_text = ($project_link_text != '') ? $project_link_text : 'DEFAULT TEXT'; ?>
+                        <?php $pl_text = ($project_link_text != '') ? $project_link_text : __('view', 'webfactor'); ?>
                         <p><a href="<?php echo $pl_url; ?>" class="button gold_button"><?php echo $pl_text; ?></a></p>
 
                     <?php endif; ?>

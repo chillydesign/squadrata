@@ -4,7 +4,7 @@
 <!-- section -->
 <section class="container">
 
-    <h1><?php _e( 'Projets', 'webfactor' ); ?></h1>
+    <h1><?php _e( 'Projects', 'webfactor' ); ?></h1>
 
     <?php if (have_posts()): ?>
         <div id="projects_slider">

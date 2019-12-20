@@ -38,7 +38,7 @@ $project_cats = get_terms( array('taxonomy' => $tax_name,  'hide_empty' => false
                             </ul>
                         <?php endif; // end if $recent_projets ?>
                         <?php if ( sizeof($recent_projets) > $projects_to_show ): ?>
-                            <a class="all_projects" href="<?php echo $cat_url;?>">tous les projets</a>
+                            <a class="all_projects" href="<?php echo $cat_url;?>"><?php _e('all projects', 'webfactor'); ?></a>
                         <?php endif; ?>
                     </div>
                     <div class="project_image" style="background-image:url('<?php echo ($image) ? $image['sizes']['medium'] : ''; ?>'); "></div>
