@@ -11,16 +11,17 @@
             <?php $title =  get_sub_field('title'); ?>
             <?php if (!$title || $title == '') $title = $projet->post_title; ?>
             <?php $image = get_sub_field( 'image' ); ?>
-            <?php $description =  get_sub_field('description'); ?>
+            <?php // $description =  get_sub_field('description'); ?>
+            <?php $subtitle = get_post_meta($projet->ID, 'subtitle', true); ?>
 
             <div class="project project_full project_show_info" >
 
                 <?php if ($title): ?>
                     <h2><a href="<?php echo $proj_url; ?>"><?php echo $title; ?></a></h2>
                 <?php endif; ?>
-                <?php if ($description): ?>
+                <?php if ($subtitle): ?>
                     <a  href="<?php echo $proj_url; ?>" class="project_info">
-                        <p><?php echo $description; ?></p>
+                        <p><?php echo $subtitle; ?></p>
                     </a>
                 <?php endif; ?>
                 <?php if ($image): ?>
