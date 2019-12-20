@@ -11,7 +11,7 @@
             <?php  while (have_posts()) : the_post(); ?>
             <?php $proj_id =  get_the_ID(); ?>
                 <?php $image = thumbnail_of_post_url( $proj_id, 'medium' ); ?>
-                <?php $subtitle = get_post_meta( $proj_id, 'subtitle' ); ?>
+                <?php $subtitle = get_post_meta( $proj_id, 'subtitle', true ); ?>
                 <div class="project">
                     <h2><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
                     <?php the_title(); ?>
