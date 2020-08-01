@@ -103,7 +103,7 @@ function webfactor_header_scripts()
 
         $gmaps_key = 'AIzaSyBD4EqDYy3jxFy7s5b_Tu5cirnc1J4ocPc';
 
-        wp_register_script('gmaps',  '//maps.google.com/maps/api/js?key=' . $gmaps_key, array(''), '1.0.0',  true); // Conditional script(s)
+        wp_register_script('gmaps',  '//maps.google.com/maps/api/js?key=' . $gmaps_key, array(), '1.0.0',  true); // Conditional script(s)
         wp_enqueue_script('gmaps'); // Enqueue it!
 
 
@@ -352,7 +352,7 @@ function webfactorcomments($comment, $args, $depth)
             <div class="comment-meta commentmetadata"><a href="<?php echo htmlspecialchars(get_comment_link($comment->comment_ID)) ?>">
                     <?php
                     printf(__('%1$s at %2$s'), get_comment_date(),  get_comment_time()) ?></a><?php edit_comment_link(__('(Edit)'), '  ', '');
-                                                                                        ?>
+                                                                                                ?>
             </div>
 
             <?php comment_text() ?>
