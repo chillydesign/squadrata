@@ -129,6 +129,12 @@ function webfactor_conditional_scripts()
 function webfactor_styles()
 {
 
+    // remove gutenberg css
+    wp_dequeue_style('wp-block-library');
+
+
+
+
     $tdu  =  get_template_directory_uri();
     wp_register_style('wf_style', $tdu . '/css/global.css', array(), wf_version(),  'all');
     wp_enqueue_style('wf_style'); // Enqueue it!
