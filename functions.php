@@ -103,7 +103,7 @@ function webfactor_header_scripts()
 
         $gmaps_key = 'AIzaSyBD4EqDYy3jxFy7s5b_Tu5cirnc1J4ocPc';
 
-        wp_register_script('gmaps',  '//maps.google.com/maps/api/js?key=' . $gmaps_key, array(), '1.0.0',  true); // Conditional script(s)
+        wp_register_script('gmaps',  '//maps.google.com/maps/api/js?key=' . $gmaps_key, array(), false,  true); // Conditional script(s)
         wp_enqueue_script('gmaps'); // Enqueue it!
 
 
