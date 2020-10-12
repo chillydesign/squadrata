@@ -1,3 +1,3 @@
-# Wordpress theme for GK Service
+# Wordpress theme for Squadrata
 
-Wordpress theme for GK Service
+Wordpress theme for Squadrata
