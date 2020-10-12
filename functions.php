@@ -507,6 +507,7 @@ function create_custom_post_types() {
             'supports' => array(
                 'title',
                 'editor',
+                'author',
                 // 'excerpt',
                 'thumbnail'
             ), // Go to Dashboard Custom HTML5 Blank post for supports
@@ -654,5 +655,62 @@ function showFadeInScreen() {
 }
 
 
+
+
+add_action('init', 'change_role_name');
+function change_role_name() {
+    global $wp_roles;
+
+    if (!isset($wp_roles))
+        $wp_roles = new WP_Roles();
+
+    //You can list all currently available roles like this...
+    //$roles = $wp_roles->get_names();
+    //print_r($roles);
+    $roleToChange = 'contributor';
+    $wp_roles->roles[$roleToChange]['name'] = 'Client';
+    $wp_roles->role_names[$roleToChange] = 'Client';
+}
+
+
+
+function add_capability() {
+    $role2 = get_role('contributor'); ///adherents
+
+    $role2->remove_cap('publish_posts'); ///adherents
+    $role2->remove_cap('edit_posts'); ///adherents
+    $role2->remove_cap('edit_published_posts'); ///adherents
+    $role2->remove_cap('upload_files'); // adherents can upload pictures
+    $role2->remove_cap('edit_others_posts'); ///adherents cant see others news
+
+
+
+
+
+}
+add_action('admin_init', 'add_capability');
+
+function client_login_redirect($redirect_to, $request, $user) {
+    //is there a user to check?
+    global $user;
+    if (isset($user->roles) && is_array($user->roles)) {
+
+        if (in_array('contributor', $user->roles)) {
+            // redirect them to the default place
+            return   my_dossier_path();
+        } else {
+            return $redirect_to;
+        }
+    } else {
+        return $redirect_to;
+    }
+}
+add_filter('login_redirect', 'client_login_redirect', 10, 3);
+
+
+
+function my_dossier_path() {
+    return get_permalink(get_page_by_path('mes-dossiers'));
+}
 
     ?>

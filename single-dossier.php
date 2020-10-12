@@ -11,11 +11,12 @@
                 <?php $documents = get_field('documents'); ?>
                 <?php $sous_dossiers = get_field('sous-dossiers'); ?>
 
-                <h1><?php the_title(); ?></h1>
-                <?php the_content();  ?>
+                <h1>
+                    <a class="back_icon" href="<?php echo my_dossier_path(); ?>"> retour </a>
+                    <?php the_title(); ?>
+                </h1>
 
-
-                <ul class="files_container">
+                <?php the_content();  ?> <ul class="files_container">
                     <?php while (have_rows('documents')) : the_row(); ?>
                         <?php $file = get_sub_field('file'); ?>
                         <?php $title = get_sub_field('title'); ?>
