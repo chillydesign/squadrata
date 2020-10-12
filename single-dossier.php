@@ -9,25 +9,28 @@
 
                 <?php $gallery = get_field('gallery'); ?>
                 <?php $documents = get_field('documents'); ?>
-                <?php $sous_dossiers = get_field('sous-dossiers'); ?>
 
                 <h1>
                     <a class="back_icon" href="<?php echo my_dossier_path(); ?>"> retour </a>
                     <?php the_title(); ?>
                 </h1>
 
-                <?php the_content();  ?> <ul class="files_container">
-                    <?php while (have_rows('documents')) : the_row(); ?>
-                        <?php $file = get_sub_field('file'); ?>
-                        <?php $title = get_sub_field('title'); ?>
-                        <li class="file_container">
+                <?php the_content();  ?>
 
-                            <p><?php echo $title; ?>
-                                <a target="_blank" href="<?php echo $file['url']; ?>"><?php echo $file['filename']; ?></a>
-                            </p>
-                        </li>
-                    <?php endwhile; ?>
-                </ul>
+                <?php if (have_rows('documents')) : ?>
+                    <ul class="files_container">
+                        <?php while (have_rows('documents')) : the_row(); ?>
+                            <?php $file = get_sub_field('file'); ?>
+                            <?php $title = get_sub_field('title'); ?>
+                            <li class="file_container">
+
+                                <p><?php echo $title; ?>
+                                    <a target="_blank" href="<?php echo $file['url']; ?>"><?php echo $file['filename']; ?></a>
+                                </p>
+                            </li>
+                        <?php endwhile; ?>
+                    </ul>
+                <?php endif; ?>
 
 
 
@@ -53,7 +56,7 @@
                 ?>
 
 
-                <?php if ($sous_dossiers) : ?>
+                <?php if (have_rows('sous-dossiers')) : ?>
                     <div class="sub_dossiers">
 
                         <?php while (have_rows('sous-dossiers')) : the_row(); ?>

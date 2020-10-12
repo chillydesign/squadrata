@@ -370,3 +370,28 @@ p.subtitle {
     position: relative;
     top: 15px;
 }
+
+
+.my_dossiers {
+    margin: 0;
+    padding: 0;
+
+    li {
+        list-style: none;
+        padding: 0 0 30px;
+        margin: 0;
+
+        a {
+            display: flex;
+        }
+
+        .dossier_image {
+            background: no-repeat center center $light_grey;
+            width: 150px;
+            height: 100px;
+            background-size: cover;
+            margin: 0 10px 0 0
+        }
+
+    }
+}

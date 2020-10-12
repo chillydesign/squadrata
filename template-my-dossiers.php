@@ -28,10 +28,17 @@
                     ); ?>
 
 
-                    <ul>
+                    <ul class="my_dossiers">
                         <?php foreach ($dossiers as $dossier) : ?>
                             <li>
                                 <a href="<?php echo get_post_permalink($dossier); ?>">
+                                    <?php $image = thumbnail_of_post_url($dossier->ID); ?>
+
+
+                                    <div class="dossier_image" style="background-image:url(<?php echo $image; ?>);"></div>
+
+
+
                                     <?php echo $dossier->post_title; ?>
                                 </a>
                             </li>
