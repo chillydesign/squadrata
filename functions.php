@@ -1,6 +1,6 @@
 <?php
 /*
- *  Author: Todd Motto | @toddmotto
+ *  Author: Webfactor
  *  URL: webfactor.com | @webfactor
  *  Custom functions, support, custom post types and more.
  */
@@ -507,7 +507,6 @@ function create_custom_post_types() {
             'supports' => array(
                 'title',
                 'editor',
-                'author',
                 // 'excerpt',
                 'thumbnail'
             ), // Go to Dashboard Custom HTML5 Blank post for supports
@@ -656,6 +655,28 @@ function showFadeInScreen() {
 
 
 
+function dossiers_associated_with_user($user_id) {
+
+    global $wpdb;
+
+    $post_ids = $wpdb->get_results("SELECT post_id FROM $wpdb->postmeta  WHERE `meta_key` = 'clients'  AND `meta_value` LIKE '%\"" . $user_id . "\"%'");
+
+    if (sizeof($post_ids) > 0) {
+        $post_ids  = array_map('api_get_post_id', $post_ids);
+        return $post_ids;
+    }
+
+    return null;
+}
+
+if (!function_exists('api_get_post_id')) {
+    function api_get_post_id($obj) {
+        return intval($obj->post_id);
+    }
+}
+
+
+
 
 add_action('init', 'change_role_name');
 function change_role_name() {
@@ -697,7 +718,7 @@ function client_login_redirect($redirect_to, $request, $user) {
 
         if (in_array('contributor', $user->roles)) {
             // redirect them to the default place
-            return   my_dossier_path();
+            return my_dossier_path();
         } else {
             return $redirect_to;
         }

@@ -19,31 +19,27 @@
 
                 <?php if (is_user_logged_in()) : ?>
                     <?php $current_user = get_current_user_id(); ?>
-                    <?php $dossiers = get_posts(
-                        array(
-                            'post_type' => 'dossier',
-                            'author' => $current_user,
-                            'posts_per_page' => -1
-                        )
-                    ); ?>
-
-
-                    <ul class="my_dossiers">
-                        <?php foreach ($dossiers as $dossier) : ?>
-                            <li>
-                                <a href="<?php echo get_post_permalink($dossier); ?>">
-                                    <?php $image = thumbnail_of_post_url($dossier->ID); ?>
-
-
-                                    <div class="dossier_image" style="background-image:url(<?php echo $image; ?>);"></div>
-
-
-
-                                    <?php echo $dossier->post_title; ?>
-                                </a>
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
+                    <?php $dossier_ids = dossiers_associated_with_user($current_user); ?>
+                    <?php if ($dossier_ids) : ?>
+                        <?php $dossiers = get_posts(
+                            array(
+                                'post_type' => 'dossier',
+                                'post__in' => ($dossier_ids),
+                                'posts_per_page' => -1
+                            )
+                        ); ?>
+                        <ul class="my_dossiers">
+                            <?php foreach ($dossiers as $dossier) : ?>
+                                <li>
+                                    <a href="<?php echo get_post_permalink($dossier); ?>">
+                                        <?php $image = thumbnail_of_post_url($dossier->ID); ?>
+                                        <div class="dossier_image" style="background-image:url(<?php echo $image; ?>);"></div>
+                                        <?php echo $dossier->post_title; ?>
+                                    </a>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    <?php endif; ?>
 
                 <?php else : ?>
                     <p> <a href="<?php echo wp_login_url(); ?>"> Please log in</a>
