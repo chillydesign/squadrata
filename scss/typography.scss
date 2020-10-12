@@ -150,3 +150,7 @@ button {
         background-color: $brand_color;
     }
 }
+
+a:focus, a:hover {
+  box-shadow: none!important;
+}
