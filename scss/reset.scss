@@ -1,14 +1,130 @@
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+}
 
-html, body, div, span,  object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, img, ins, kbd, q,  samp,small, strike, strong, sub, sup, tt, var,b, i,  dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details,  figure, figcaption, footer, header, hgroup, menu, nav, output, section, summary,time, mark, audio, video {	margin: 0;	padding: 0;	border: 0;	font-size: 100%; vertical-align: baseline;}
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {	display: block;}
-body {	line-height: 1;}
-ul, ol {list-style:none;}
-blockquote, q {	quotes: none;}
-blockquote:before, blockquote:after,q:before, q:after {	content: '';	content: none;}
-table {	border-collapse: collapse;	border-spacing: 0}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
 
-*, *::before, *::after {
+body {
+    line-height: 1;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
@@ -39,6 +155,10 @@ table {	border-collapse: collapse;	border-spacing: 0}
     width: 100%;
     padding: 0 15px;
 
+    @media (min-width: $mobile_width) {
+        width: 50%;
+    }
+
     &.column_align_right {
         text-align: right;
     }
@@ -48,8 +168,18 @@ table {	border-collapse: collapse;	border-spacing: 0}
 
 
 /*BOOTSTRAP STUFF*/
-.clearfix:before,.clearfix:after,.row:before,.row:after {display:table;content:" "}
-.clearfix:after, .row:after {clear:both}
+.clearfix:before,
+.clearfix:after,
+.row:before,
+.row:after {
+    display: table;
+    content: " "
+}
+
+.clearfix:after,
+.row:after {
+    clear: both
+}
 
 
 .container-fluid {
@@ -71,11 +201,13 @@ table {	border-collapse: collapse;	border-spacing: 0}
     }
 
 }
+
 @media (min-width: 992px) {
     .container {
         width: 970px;
     }
 }
+
 @media (min-width: 1200px) {
     .container {
         width: 1170px;

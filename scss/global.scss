@@ -161,8 +161,21 @@ section.section_feature_image {
 
 section.section_projets {}
 
-#projects_slider {
+div.projects_slider {
     margin: 0 0 50px;
+
+    &.projects_slider_video {
+        .slick-arrow {
+            bottom: 33%;
+            top: 33%;
+        }
+
+
+    }
+
+    video {
+        width: 100%;
+    }
 
     .project {
         color: white;
@@ -189,6 +202,8 @@ section.section_projets {}
                 height: auto;
             }
         }
+
+
 
         &.project_show_info {
             .project_info {
@@ -304,4 +319,42 @@ p.subtitle {
 #map_container {
     background: $light_grey;
     height: 300px;
+}
+
+
+.files_container {
+    margin: 0 0 20px;
+    padding: 20px;
+    background-color: $light_grey;
+
+    .file_container {
+        list-style: none;
+        font-size: 1em;
+        background: url('../img/download.svg') left 1px no-repeat;
+        background-size: 24px;
+        padding: 0 0 10px 35px;
+
+        p {
+            padding: 0;
+        }
+
+        a {
+            border-bottom: 1px solid $brand_color;
+        }
+    }
+}
+
+.sub_dossiers {
+    padding: 40px 0;
+    border-top: 3px solid $light_grey;
+
+    .sub_dossier {
+        background-color: $light_grey;
+        padding: 20px;
+        margin: 0 0 20px;
+    }
+
+    .files_container {
+        padding: 0;
+    }
 }
