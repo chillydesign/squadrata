@@ -36,7 +36,12 @@
                                 <li class="social_icon social_icon_vcard"><a target="_blank" href="<?php echo $tdu; ?>/vcards/squadrata.vcf">Vcard</a></li>
                                 <li class="social_icon social_icon_instagram"><a href="#">Instagram</a></li>
                                 <li class="social_icon social_icon_pinterest"><a href="#">Pinterest</a></li>
-                                <li><a href="<?php echo get_home_url();?>/wp-login">login client</a></li>
+                                <?php if(is_user_logged_in()): ?>
+                                    <li><a href="<?php echo get_home_url();?>/mes-dossiers/">Dossiers/</a></li>
+                                    <li><a href="<?php  wp_logout_url(); ?>">Déconnexion/</a></li>
+                                <?php else: ;?>
+                                  <li><a href="<?php echo get_home_url();?>/wp-login">login client</a></li>
+                                <?php endif; ?>
                             </ul>
                         </nav>
 
