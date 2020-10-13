@@ -36,7 +36,7 @@
                                 <li class="social_icon social_icon_vcard"><a target="_blank" href="<?php echo $tdu; ?>/vcards/squadrata.vcf">Vcard</a></li>
                                 <li class="social_icon social_icon_instagram"><a href="#">Instagram</a></li>
                                 <li class="social_icon social_icon_pinterest"><a href="#">Pinterest</a></li>
-                                <!-- <li><a href="#">login client</a></li> -->
+                                <li><a href="<?php echo get_home_url();?>/wp-login">login client</a></li>
                             </ul>
                         </nav>
 
