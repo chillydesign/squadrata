@@ -85,7 +85,7 @@ function webfactor_nav() {
 }
 
 function wf_version() {
-    return '0.4.1';
+    return '0.4.2';
 }
 
 // Load HTML5 Blank scripts (header.php)
@@ -96,6 +96,10 @@ function webfactor_header_scripts() {
 
         wp_register_script('slick', $tdu . '/js/slick.min.js', array('jquery'),  wf_version(),  true); // Conditional script(s)
         wp_enqueue_script('slick'); // Enqueue it!
+        wp_register_script('featherlight', $tdu . '/js/featherlight.min.js', array('jquery'),  wf_version(),  true); // Conditional script(s)
+        wp_enqueue_script('featherlight'); // Enqueue it!
+        wp_register_script('fgallery', $tdu . '/js/featherlight.gallery.min.js', array('jquery'),  wf_version(),  true); // Conditional script(s)
+        wp_enqueue_script('fgallery'); // Enqueue it!
 
 
         $gmaps_key = 'AIzaSyBD4EqDYy3jxFy7s5b_Tu5cirnc1J4ocPc';
@@ -131,6 +135,10 @@ function webfactor_styles() {
 
 
     $tdu  =  get_template_directory_uri();
+    wp_register_style('featherlight', $tdu . '/js/featherlight.min.css', array(), wf_version(),  'all');
+    wp_enqueue_style('featherlight'); // Enqueue it!
+    wp_register_style('fgallery', $tdu . '/js/featherlight.gallery.min.css', array(), wf_version(),  'all');
+    wp_enqueue_style('fgallery'); // Enqueue it!
     wp_register_style('wf_style', $tdu . '/css/global.css', array(), wf_version(),  'all');
     wp_enqueue_style('wf_style'); // Enqueue it!
 }

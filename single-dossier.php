@@ -36,22 +36,25 @@
 
 
                 <?php if ($gallery) : ?>
-                    <div class="projects_slider projects_slider_video" data-slidestoshow="1">
+                    <div class="gallery_images ">
                         <?php foreach ($gallery as $slide) : ?>
-                            <div class="project project_full">
+                            <div class="gallery_image">
                                 <?php $mimetype = $slide['mime_type']; ?>
                                 <?php if ($mimetype == 'video/mp4') : ?>
                                     <video controls="true">
                                         <source src="<?php echo $slide['url']; ?>" type=" <?php echo $mimetype; ?>">
                                     </video>
                                 <?php else : ?>
-                                    <img src="<?php echo $slide['sizes']['large']; ?>" />
+                                    <a href="<?php echo $slide['sizes']['large']; ?>" class="gallery">
+                                        <img src="<?php echo $slide['sizes']['small']; ?>" />
+                                    </a>
                                 <?php endif; ?>
                             </div>
                         <?php endforeach;
                         // end of foreach gallery 
                         ?>
-                    </div><!-- END OF PROJECTS SLIDER -->
+                    </div>
+                    <!--END OF gallery_images SLIDER -->
                 <?php endif; // end if $gallery  
                 ?>
 
@@ -65,10 +68,35 @@
                             <?php $gallery = get_sub_field('gallery'); ?>
                             <div class="sub_dossier">
 
+                                <h3><?php echo $title; ?></h3>
+
+                                <?php if ($gallery) : ?>
+                                    <div class="gallery_images">
+                                        <?php foreach ($gallery as $slide) : ?>
+                                            <div class="gallery_image">
+                                                <?php $mimetype = $slide['mime_type']; ?>
+                                                <?php if ($mimetype == 'video/mp4') : ?>
+                                                    <video controls="true">
+                                                        <source src="<?php echo $slide['url']; ?>" type=" <?php echo $mimetype; ?>">
+                                                    </video>
+                                                <?php else : ?>
+                                                    <a href="<?php echo $slide['sizes']['large']; ?>" class="gallery">
+                                                        <img src="<?php echo $slide['sizes']['small']; ?>" />
+                                                    </a>
+                                                <?php endif; ?>
+                                            </div>
+                                        <?php endforeach;
+                                        // end of foreach gallery 
+                                        ?>
+                                    </div><!-- END OF gallery_images -->
+                                <?php endif; // end if $gallery  
+                                ?>
+
                                 <div class="column_container">
                                     <div class="column">
-                                        <h3><?php echo $title; ?></h3>
+
                                         <p><?php echo $description; ?></p>
+
                                         <ul class="files_container">
                                             <?php while (have_rows('documents')) : the_row(); ?>
                                                 <?php $file = get_sub_field('file'); ?>
@@ -84,33 +112,10 @@
 
                                     </div>
                                     <!--END column -->
-                                    <div class="column column_align_right">
-                                        <?php if ($gallery) : ?>
-                                            <div class="projects_slider projects_slider_video" data-slidestoshow="1">
-                                                <?php foreach ($gallery as $slide) : ?>
-                                                    <div class="project project_full">
-                                                        <?php $mimetype = $slide['mime_type']; ?>
-                                                        <?php if ($mimetype == 'video/mp4') : ?>
-                                                            <video controls="true">
-                                                                <source src="<?php echo $slide['url']; ?>" type=" <?php echo $mimetype; ?>">
-                                                            </video>
-                                                        <?php else : ?>
-                                                            <img src="<?php echo $slide['sizes']['large']; ?>" />
-                                                        <?php endif; ?>
-                                                    </div>
-                                                <?php endforeach;
-                                                // end of foreach gallery 
-                                                ?>
-                                            </div><!-- END OF PROJECTS SLIDER -->
-                                        <?php endif; // end if $gallery  
-                                        ?>
+                                    <div class="column ">
+                                        &nbsp;
                                     </div>
                                 </div>
-
-
-
-
-
                             </div>
                         <?php endwhile; ?>
                     </div>

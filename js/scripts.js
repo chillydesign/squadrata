@@ -32,6 +32,12 @@
 
 
 
+        $('a.gallery').featherlightGallery({
+            openSpeed: 300
+        });
+
+
+
         var $projects_slider = $(".projects_slider");
         if ($projects_slider.length > 0) {
             var $slides_to_show = $projects_slider.data('slidestoshow');
