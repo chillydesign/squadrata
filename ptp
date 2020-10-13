@@ -1,0 +1,7 @@
+#!/bin/bash
+
+ssh webfactor << EOF
+cd ~/sites/squadrata.com/wp-content/themes/squadrata;
+git pull origin master;
+echo "DONE!";
+EOF
