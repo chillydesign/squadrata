@@ -421,7 +421,7 @@ p.subtitle {
                 width: auto;
             }
 
-            @media (min-width: 992px) {
+            @media (min-width: $tablet_width) {
                 height: 230px;
                 width: auto;
             }
@@ -443,7 +443,14 @@ p.subtitle {
 
             video,
             img {
-                height: 180px;
+
+                @media (min-width: $mobile_width) {
+                    height: 150px;
+                }
+
+                @media (min-width: $tablet_width) {
+                    height: 180px;
+                }
             }
         }
     }
