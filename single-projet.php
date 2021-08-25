@@ -32,7 +32,7 @@
                             <?php foreach ($videos as $video) : ?>
                                 <div class="project project_full">
                                     <?php $youtube_id = youtube_id_from_url($video['youtube_link']); ?>
-                                    <iframe style="width: 100%" width="560" height="615" src="https://www.youtube.com/embed/<?php echo $youtube_id; ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope" allowfullscreen></iframe>
+                                    <iframe style="width: 100%" width="560" height="549" src="https://www.youtube.com/embed/<?php echo $youtube_id; ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope" allowfullscreen></iframe>
                                 </div>
                             <?php endforeach; // end of foreach gallery 
                             ?>
