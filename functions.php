@@ -742,4 +742,15 @@ function my_dossier_path() {
     return get_permalink(get_page_by_path('mes-dossiers'));
 }
 
+
+function youtube_id_from_url($url) {
+
+    $a = explode('?v=', $url);
+    $b = $a[1];
+    $c = explode('&', $b);
+    $d = $c[0];
+    $id = $d;
+    return $id;
+}
+
     ?>

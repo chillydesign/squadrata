@@ -8,6 +8,7 @@
 
                 <?php $subtitle = get_field('subtitle'); ?>
                 <?php $gallery = get_field('gallery'); ?>
+                <?php $videos = get_field('videos'); ?>
                 <?php $project_link = get_field('project_link'); ?>
                 <?php $project_link_text = get_field('project_link_text'); ?>
 
@@ -16,17 +17,30 @@
                     <p class="subtitle"><?php echo $subtitle; ?></p>
                 <?php endif; ?>
 
-                <?php if ($gallery) : ?>
+                <?php if ($gallery || $videos) : ?>
                     <div class="projects_slider" data-slidestoshow="1">
-                        <?php foreach ($gallery as $slide) : ?>
-                            <div class="project project_full">
-                                <img src="<?php echo $slide['sizes']['large']; ?>" />
-                            </div>
-                        <?php endforeach; // end of foreach gallery 
-                        ?>
+
+                        <?php if ($gallery) : ?>
+                            <?php foreach ($gallery as $slide) : ?>
+                                <div class="project project_full">
+                                    <img src="<?php echo $slide['sizes']['large']; ?>" />
+                                </div>
+                            <?php endforeach; // end of foreach gallery 
+                            ?>
+                        <?php endif; ?>
+                        <?php if ($videos) : ?>
+                            <?php foreach ($videos as $video) : ?>
+                                <div class="project project_full">
+                                    <?php $youtube_id = youtube_id_from_url($video); ?>
+                                    <iframe style="width: 100%" width="560" height="315" src="https://www.youtube.com/embed/<?php echo $youtube_id; ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope" allowfullscreen></iframe>
+                                </div>
+                            <?php endforeach; // end of foreach gallery 
+                            ?>
+                        <?php endif; ?>
+
+
                     </div><!-- END OF PROJECTS SLIDER -->
-                <?php endif; // end if $gallery 
-                ?>
+                <?php endif; ?>
 
 
                 <div class="column_container">
