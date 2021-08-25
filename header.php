@@ -49,8 +49,8 @@
                         </ul>
                         <ul id="social_nav">
                             <li class="social_icon social_icon_vcard"><a target="_blank" href="<?php echo $tdu; ?>/vcards/squadrata.vcf">Vcard</a></li>
-                            <li class="social_icon social_icon_instagram"><a target="_blank" href="https://www.instagram.com/squadrata_architecture">Instagram</a></li>
-                            <li class="social_icon social_icon_pinterest"><a target="_blank" href="https://www.pinterest.ch/squadrata">Pinterest</a></li>
+                            <li class="social_icon social_icon_instagram"><a target="_blank" href="https://www.instagram.com/squadrata_architecture/">Instagram</a></li>
+                            <li class="social_icon social_icon_pinterest"><a target="_blank" href="https://www.pinterest.ch/squadrata/">Pinterest</a></li>
                             <?php if (is_user_logged_in()) : ?>
                                 <li><a href="<?php echo get_home_url(); ?>/mes-dossiers/">Dossiers</a></li>
                                 <li><a href="<?php echo get_home_url(); ?>/wp-login.php?action=logout">Déconnexion</a></li>
