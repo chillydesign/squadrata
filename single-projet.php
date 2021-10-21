@@ -23,7 +23,7 @@
                         <?php if ($gallery) : ?>
                             <?php foreach ($gallery as $slide) : ?>
                                 <div class="project project_full">
-                                    <img src="<?php echo $slide['sizes']['large']; ?>" />
+                                    <div class="project_img" style="background-image:url(<?php echo $slide['sizes']['large']; ?>"></div>
                                 </div>
                             <?php endforeach; // end of foreach gallery 
                             ?>
