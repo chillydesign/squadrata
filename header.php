@@ -55,7 +55,7 @@
                                 <li><a href="<?php echo get_home_url(); ?>/mes-dossiers/">Dossiers</a></li>
                                 <li><a href="<?php echo get_home_url(); ?>/wp-login.php?action=logout">Déconnexion</a></li>
                             <?php else :; ?>
-                                <li><a href="<?php echo get_home_url(); ?>/wp-login">login client</a></li>
+                                <li><a href="<?php echo get_home_url(); ?>/wp-login.php">login client</a></li>
                             <?php endif; ?>
                         </ul>
                     </nav>
